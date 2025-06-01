@@ -1,0 +1,12 @@
+from transformers import MarianMTModel, MarianTokenizer
+
+# Model names from HuggingFace
+en_to_kn_model_name = "Helsinki-NLP/opus-mt-en-mul"
+kn_to_en_model_name = "Helsinki-NLP/opus-mt-mul-en"
+
+# Load models and tokenizers
+en_to_kn_tokenizer = MarianTokenizer.from_pretrained(en_to_kn_model_name)
+en_to_kn_model = MarianMTModel.from_pretrained(en_to_kn_model_name)
+
+kn_to_en_tokenizer = MarianTokenizer.from_pretrained(kn_to_en_model_name)
+kn_to_en_model = MarianMTModel.from_pretrained(kn_to_en_model_name)
