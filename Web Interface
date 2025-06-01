@@ -1,0 +1,17 @@
+import gradio as gr
+
+def interface_fn(text, direction):
+    return translate_text(text, direction)
+
+iface = gr.Interface(
+    fn=interface_fn,
+    inputs=[
+        gr.Textbox(lines=4, placeholder="Enter your text here...", label="Input Text"),
+        gr.Radio(choices=["en-kn", "kn-en"], label="Translation Direction")
+    ],
+    outputs="text",
+    title="English ↔ Kannada Translator",
+    description="Translate text between English and Kannada using MarianMT LLM."
+)
+
+iface.launch(share=True)
