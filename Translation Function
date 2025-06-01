@@ -1,0 +1,13 @@
+def translate_text(text, direction):
+    if direction == "en-kn":
+        tokenizer = en_to_kn_tokenizer
+        model = en_to_kn_model
+        text = f">>kan<< {text}"  # Tag for Kannada
+    else:
+        tokenizer = kn_to_en_tokenizer
+        model = kn_to_en_model
+
+    inputs = tokenizer(text, return_tensors="pt", padding=True)
+    outputs = model.generate(**inputs)
+    translated = tokenizer.decode(outputs[0], skip_special_tokens=True)
+    return translated
